@@ -5,15 +5,20 @@ This project will help us in creating an application that will take a list of in
 - Ask the user to input all the ingredients that they are interested in (through command-line arguments).  
 - Use the model (or search index) to predict the type of cuisine and tell the user.  
 - Find the top-N closest foods (N defined with a command-line parameter). Return the IDs of those dishes to the user.  
+  
 **The command used for running the project:** 
 pipenv run python project2.py --N 3 --ingredient rice --ingredient flour  
+  
 **The command used for running the test scripts:**  
 pipenv run python -m pytest
+  
 **The modules used for the project:**  
 NumpyEncoder : pipenv install numpyencoder  
 sklearn : pipenv install sklearn  
 numpy: pipenv install numpy  
+  
 Running the project with the above given command-line argument will take the list of the ingredients provided by the user and the number  N and produces an output with a prediction of the type of cuisine and displays the top-N closest foods – returns the IDs of the dishes.  
+  
 The project2.py contains the following functions:  
 - ***read(inpdata):***  
 In this function, the data file “yummly.json” is read and stored in a variable called input_data which is further used in the program.  
@@ -21,25 +26,26 @@ In this function, the data file “yummly.json” is read and stored in a variab
 In this function, the input_data returned from the read() function is taken and cleaned. Meaning, in this case, the ingredients in the input file are converted from a list to a string so that it will be easy for us to proceed to further steps of training the model.  
 - *result(ingredients,N,input_data):*
 In this function, I am initializing the columns "ingredients" and "cuisine" to variables X and y for which I am performing train_test_split().For train_test_split(), I am using 70% of data as train data and rest 30% as test data.Then I am using a classifier "KNN" for which I am declaring a pipeline which consists of CountVectorizer and TfidfTransformer to convert the entire texts into numeric format.Then I am using a function called todense() to convert it to a matrix form.I am using a function called .kneighbours() to find out the nearest possible distance's and index's.I am declaring a dataFrame and appending all the Id's,Cuisine and Distances to that DataFrame with the index 0.Then I am initializing a dictonary and using it for the appending of values cuisine along with its score.Then for the closest of Id's I am checking a condition for user given N value, for which I am appending ID's along with their Scores.I am converting the appended dictonary to a JSON format by using the function json.dumps() and then printing it to the console in the following format:  
-{
-    "Cuisine": "indian",
-    "score": 0.835,
-    "closest": [
-        {
-            "id": 899,
-            "score": 0.966
-        },
-        {
-            "id": 14745,
-            "score": 0.989
-        },
-        {
-            "id": 5192,
-            "score": 0.052
-        }
-    ]
-}  
+{  
+    "Cuisine": "indian",  
+    "score": 0.835,  
+    "closest": [  
+        {  
+            "id": 899,  
+            "score": 0.966  
+        },  
+        {  
+            "id": 14745,  
+            "score": 0.989  
+        },  
+        {  
+            "id": 5192,  
+            "score": 0.052  
+        }  
+    ]  
+}    
 
+  
 **Test Cases:**  
 Test cases are written in tests/test_project2.py.  
 - ***test_read():***  
