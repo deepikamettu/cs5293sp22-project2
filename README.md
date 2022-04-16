@@ -6,7 +6,7 @@ This project will help us in creating an application that will take a list of in
 - Use the model (or search index) to predict the type of cuisine and tell the user.  
 - Find the top-N closest foods (N defined with a command-line parameter). Return the IDs of those dishes to the user.  
   
-**The command used for running the project:** 
+**The command used for running the project:**   
 pipenv run python project2.py --N 3 --ingredient rice --ingredient flour  
   
 **The command used for running the test scripts:**  
