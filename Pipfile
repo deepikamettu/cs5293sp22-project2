@@ -4,14 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-black = "*"
-pandas = "*"
-nltk = "*"
 sklearn = "*"
-pytest = "*"
+pandas = "*"
 numpyencoder = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
